@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic");
+/*Fonts*/
+/*Colors*/
+body {
+  margin: 0;
+  color: black;
+  background: white url("../img/background.jpg") no-repeat center top;
+  background-size: cover;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400px; }
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.search {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  float: left;
+  margin: 0;
+  padding: 20px 0; }
+  .search form {
+    float: right;
+    padding: 20px;
+    background: #eee;
+    background-color: rgba(225, 225, 225, 0.6); }
+    .search form .form-group {
+      display: inline-block; }
+      .search form .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #454545; }
+      .search form .form-group .form-city {
+        font-size: base__font-size;
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) ;
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) ;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) ;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        background-clip: padding-box;
+        /* stops bg color from leaking outside the border: */
+        -webkit-transition: 0.3s ease;
+        -moz-transition: 0.3s ease;
+        -ms-transition: 0.3s ease;
+        -o-transition: 0.3s ease;
+        transition: 0.3s ease;
+        color: #555;
+        vertical-align: middle;
+        background-color: white; }
+    .search form button {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background-clip: padding-box;
+      /* stops bg color from leaking outside the border: */
+      -webkit-transition: 0.3s ease;
+      -moz-transition: 0.3s ease;
+      -ms-transition: 0.3s ease;
+      -o-transition: 0.3s ease;
+      transition: 0.3s ease;
+      border: none;
+      padding: 6px 12px 7px 12px;
+      font-weight: 400;
+      text-transform: lowercase !important;
+      width: auto;
+      position: relative;
+      font-size: 14px;
+      cursor: pointer;
+      bottom: -2px;
+      background-color: #21487f;
+      color: white; }
+      .search form button:hover {
+        background-color: white;
+        color: #21487f; }
+      .search form button:visited, .search form button:active, .search form button:focus {
+        box-shadow: none; }
+
+.results {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  float: left;
+  margin: 0;
+  color: white;
+  background-color: black;
+  background-color: rgba(56, 56, 56, 0.6);
+  padding-bottom: 20px; }
+  .results .city-forecast {
+    padding: 0px 20px; }
+    .results .city-forecast .cols {
+      width: 31.42857%;
+      float: left;
+      margin-right: 2.85714%; }
+      .results .city-forecast .cols:nth-last-child(1) {
+        margin-right: 0px; }
+      .results .city-forecast .cols h4 {
+        margin: 0px; }

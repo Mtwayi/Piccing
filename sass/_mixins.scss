@@ -1,0 +1,146 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// BEM selectors
+
+@mixin e($element) {
+	&__#{$element} {
+    @content;
+  }
+}
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+@function _from-hex($string) {
+  $string-lower: to-lower-case($string);
+  $r: "";  $g: ""; $b: "";
+  $hex: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f";
+  $length: str-length($string);
+  $max: if($length == 4, 1, 2);
+
+  // Check for length accuracy
+  @if $length != 4 and $length != 7 {
+    @return $string;
+  }
+
+  // Loop from the second character (omitting #)
+  @for $i from 2 through $length {
+    $c: str-slice($string-lower, $i, $i);
+
+    // If wrong character, return
+    @if index($hex, $c) == null {
+      @return $string;
+    }
+
+    @if      str-length($r) < $max {
+      $r: $r + $c;
+    } @else if str-length($g) < $max {
+      $g: $g + $c;
+    } @else if str-length($b) < $max {
+      $b: $b + $c;
+    }
+  }
+
+  @if $length == 4 {
+    $r: $r + $r;
+    $g: $g + $g;
+    $b: $b + $b;
+  }
+
+  @return rgb(_hex-to-dec($r), _hex-to-dec($g), _hex-to-dec($b));
+}
+
+@function _hex-to-dec($string) {
+  $hex: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f";
+  $string: to-lower-case($string);
+  $length: str-length($string);
+
+  $dec: 0;
+  @for $i from 1 through $length {
+    $factor: 1 + (15 * ($length - $i));
+    $index: index($hex, str-slice($string, $i, $i));
+    $dec: $dec + $factor * ($index - 1);
+  }
+
+  @return $dec;
+}
+
+
+// Alpha Background
+
+@mixin alpha-background-color($color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  background-color: $solid-color;
+  background-color: $color;
+}      
+
+// IE Mixin
+
+@mixin ie($ver) {
+    @each $v in $ver {
+        html.ie#{$v} & {
+            @content;
+        }
+    }
+}
+
+@mixin browser($ver) {
+    @each $v in $ver {
+        html.#{$v} & {
+            @content;
+        }
+    }
+}
+
+
+// ==========================================================================
+// Border Radius
+// ==========================================================================
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// ==========================================================================
+// Opacity
+// ==========================================================================
+@mixin Opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+
+  // opacity: $opacity;
+  // $opacity-ie: $opacity * 100;
+  // filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+// ==========================================================================
+// Transition
+// ==========================================================================
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+
+// ==========================================================================
+// Box Shadow
+// ==========================================================================
+@mixin box-shadow($left:0, $top:1px, $blur:1px, $color:#000, $inset:"") {
+      -webkit-box-shadow:$left $top $blur $color #{$inset};
+      -moz-box-shadow:$left $top $blur $color #{$inset};
+      box-shadow:$left $top $blur $color #{$inset};
+}

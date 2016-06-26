@@ -1,0 +1,115 @@
+@import "../node_modules/susy/sass/_susy.scss";
+@import "_mixins.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic');
+
+
+$susy: (
+  columns: 12,
+  gutters: 20px/40px,
+  column-width: 40px,
+  container: 1200px,
+  math: fluid,
+  output: float,
+  flow: ILM,
+);
+
+/*Fonts*/
+$base__font-size: 14px;
+$font-family--primary: 'Source Sans Pro', sans-serif;
+
+/*Colors*/
+$color_yellow: white;
+$color_grey: #555;
+$color_black: black;
+$color_white: white;
+$color_blue: #21487f;
+
+body {
+  margin: 0;
+  color: $color_black; 
+  background: $color_yellow url("../img/background.jpg") no-repeat center top;
+  background-size: cover;
+  font-family: $font-family--primary;
+  font-weight: 400px;
+}
+
+.container {
+	@include container;
+}
+  
+.search {
+	@include span(12);
+	float: left;
+	margin: 0;
+  padding: 20px 0;
+  form {
+    float: right;
+    padding: 20px;
+    background: #eee;
+    background-color: rgba(225, 225, 225, 0.6);
+    .form-group {
+      display: inline-block;
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #454545;
+      }
+      .form-city {
+        font-size: base__font-size;
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        @include box-shadow(inset 0, 1px, 1px, rgba(0, 0, 0, 0.075));
+        @include border-radius(2px);
+        @include transition(.3s ease);
+        color: $color_grey;
+        vertical-align: middle;
+        background-color: $color_white;
+
+      }
+    }
+    button {
+      @include border-radius(2px);
+      @include transition(.3s ease);
+      border: none;
+      padding: 6px 12px 7px 12px;
+      font-weight: 400;
+      text-transform: lowercase!important;
+      width: auto;
+      position: relative;
+      font-size: $base__font-size ;
+      cursor: pointer;
+      bottom: -2px;
+      background-color: $color_blue;
+      color: $color_white;
+      &:hover {
+        background-color: $color_white;
+        color: $color_blue;
+      }
+      &:visited, &:active, &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+.results {
+  @include span(12);
+  float: left;
+  margin: 0;
+  color: $color_white;
+  background-color: $color_black;
+  background-color: rgba(56, 56, 56, 0.6);
+  padding-bottom: 20px;
+  .city-forecast {
+    padding: 0px 20px;
+    .cols {
+      @include span(4);
+      &:nth-last-child(1) {
+        margin-right: 0px;
+      }
+      h4 {
+        margin: 0px;
+      }
+    }
+  }
+}

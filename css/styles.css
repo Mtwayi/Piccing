@@ -17,13 +17,17 @@ body {
     content: " ";
     display: block;
     clear: both; }
-
+.row {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+}
 .search {
   width: 100%;
   float: left;
   margin-left: 0;
   margin-right: 0;
-  float: left;
   margin: 0;
   padding: 20px 0; }
   .search form {
@@ -38,7 +42,7 @@ body {
         margin-bottom: 5px;
         color: #454545; }
       .search form .form-group .form-city {
-        font-size: base__font-size;
+        font-size: 14px;
         padding: 8px 12px;
         border: 1px solid #ccc;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) ;
@@ -88,7 +92,6 @@ body {
   float: left;
   margin-left: 0;
   margin-right: 0;
-  float: left;
   margin: 0;
   color: white;
   background-color: black;
@@ -104,3 +107,25 @@ body {
         margin-right: 0px; }
       .results .city-forecast .cols h4 {
         margin: 0px; }
+.random-numbers, .reverse-string {
+  margin: 20px auto;
+  position: relative;
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  background-color: #21487f;
+  color: white; }
+.centered {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #21487f;
+  color: white;
+  margin: 0 auto; }
+  .centered p {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%) }

@@ -37,10 +37,12 @@ body {
 .container {
 	@include container;
 }
+.div {
+    @include span(12);
+}
   
 .search {
 	@include span(12);
-	float: left;
 	margin: 0;
   padding: 20px 0;
   form {
@@ -56,7 +58,7 @@ body {
         color: #454545;
       }
       .form-city {
-        font-size: base__font-size;
+        font-size: $base__font-size;
         padding: 8px 12px;
         border: 1px solid #ccc;
         @include box-shadow(inset 0, 1px, 1px, rgba(0, 0, 0, 0.075));
@@ -94,7 +96,6 @@ body {
 }
 .results {
   @include span(12);
-  float: left;
   margin: 0;
   color: $color_white;
   background-color: $color_black;
@@ -111,5 +112,33 @@ body {
         margin: 0px;
       }
     }
+  }
+}
+
+.random-numbers,
+.reverse-string {
+  margin: 20px auto;
+  position: relative;
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  background: $color_blue;
+  color: $color_white;
+}
+
+.centered {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: $color_blue;
+  color: $color_white;
+  margin: 0 auto;
+  p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
   }
 }

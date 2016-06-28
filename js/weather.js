@@ -11,7 +11,6 @@ function getWeather() {
             
             /* Display results of the city */
             $('.city-forecast').html('<h2>' + data.query.results.channel.item.title + '</h2>' +
-                // '<div>' + data.query.results.channel.item.description + '</div>' +
                 '<div><b>Current Conditions:</b></div>' +
                 '<div>' + data.query.results.channel.item.condition.text + '</div>' +
                 '<div>&nbsp;</div>' +
@@ -34,3 +33,24 @@ function getWeather() {
 // data.query.results.channel.astronomy.sunset;
 // data.query.results.channel.item.forecast[0].high;
 // data.query.results.channel.item.forecast[0].low;
+
+
+// 7 random unique numbers between 0 and 9
+var arr = [];
+while(arr.length < 7){
+  var randomnumber=Math.ceil(Math.random()*9)
+  var found=false;
+  for(var i=0;i<arr.length;i++){
+    if(arr[i]==randomnumber){found=true;break}
+  }
+  if(!found)arr[arr.length]=randomnumber;
+}
+$('.random-numbers').html(arr);
+
+
+// Extend the JavaScript String object
+String.prototype.reverse = function() {
+    return Array.prototype.reverse.apply(this.split('')).join('');
+};
+var mystring = "hello world";
+$('.reverse-string').html(mystring.reverse());
